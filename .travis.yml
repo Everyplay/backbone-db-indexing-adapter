@@ -5,4 +5,4 @@ notifications:
   email: false
 before_script: npm run lint
 script:
-  - make test
+  - npm run test
