@@ -1,0 +1,39 @@
+{
+  "name": "backbone-db-indexing-adapter",
+  "version": "0.1.0",
+  "description": "Interface for Backbone-db compatible adapters that can store indices",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -R spec",
+    "lint": "eslint *.js lib/*.js test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Everyplay/backbone-db-indexing-adapter.git"
+  },
+  "keywords": [
+    "backbone-db",
+    "backbone",
+    "redis",
+    "indexes"
+  ],
+  "author": "Mikko Lehtinen <m+npm@mikkolehtinen.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Everyplay/backbone-db-indexing-adapter/issues"
+  },
+  "homepage": "https://github.com/Everyplay/backbone-db-indexing-adapter",
+  "dependencies": {
+    "async": "^0.9.0",
+    "backbone-db-local": "^0.5.9",
+    "debug": "^2.1.2",
+    "lodash": "^3.5.0",
+    "when": "^3.7.2"
+  },
+  "devDependencies": {
+    "backbone-promises": "^0.2.9",
+    "chai": "^2.1.1",
+    "eslint": "^0.16.2",
+    "mocha": "^2.2.1"
+  }
+}
