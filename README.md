@@ -2,11 +2,44 @@
 
 [![Build Status](https://travis-ci.org/Everyplay/backbone-db-indexing-adapter.png?branch=master)](https://travis-ci.org/Everyplay/backbone-db-indexing-adapter)
 
-Interface for Backbone-db compatible adapters that can store indices
+Interface for Backbone-db compatible adapters that can store indices.
 
 ## IndexedDBAdapterInterface
 
-Interface that compliant backbone-db adapter must implement
+Interface that compliant backbone-db adapter must implement. Interface defines the following methods:
+
+### addToIndex
+
+Adds a key to index.
+
+### readFromIndex
+
+Read keys from the index.
+
+### readFromIndexes
+
+Read keys from multiple indexes.
+
+### removeFromIndex
+
+Remove models' keys from index.
+
+### removeIndex
+
+Removes the index completely.
+
+### existsInIndex
+
+Check if key exists in the index.
+
+### indexCount
+
+Get number of keys in the index.
+
+### score
+
+Return the score of key in the index.
+
 
 ## IndexingDBLocal
 
@@ -27,11 +60,13 @@ Mixin for Collections that use IndexedDBAdapterInterface compliant backbone-db a
 ### Usage:
 
 ```js
-  exports.TestIndexedCollection = MyCollection.extend(
+  var TestIndexedCollection = MyCollection.extend(
     _.extend({}, IndexedCollectionMixin, {
       indexDb: store
     })
   );
+  var c = new TestIndexedCollection();
+  return c.readFromIndex().then(...);
 ```
 
 
