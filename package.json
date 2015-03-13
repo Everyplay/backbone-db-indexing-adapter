@@ -1,6 +1,6 @@
 {
   "name": "backbone-db-indexing-adapter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Interface for Backbone-db compatible adapters that can store indices",
   "main": "index.js",
   "scripts": {
