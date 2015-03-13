@@ -1,5 +1,7 @@
+var _ = require('lodash');
+var when = require('when');
 var setup = require('./setup');
-require('chai').should();
+var should = require('chai').should();
 
 describe('IndexingDBLocal tests', function() {
   var collection = new setup.TestIndexedCollection();
@@ -35,11 +37,17 @@ describe('IndexingDBLocal tests', function() {
       });
   });
 
-  it('should throw if getting score for non-sorted collection', function() {
-    var score = function() {
-      collection.score(model);
-    };
-    score.should.throw();
+  it('adapter score should be a function', function() {
+    var adapter = collection.indexDb;
+    _.isFunction(adapter.score).should.equal(true);
+  });
+
+  it('should reject with error if getting score (not implemented)', function() {
+    return collection.score(model).then(function() {
+      return when.reject(new Error('should not succeed'));
+    }, function(err) {
+      should.exist(err);
+    });
   });
 
   it('should remove model from index', function() {
@@ -58,6 +66,5 @@ describe('IndexingDBLocal tests', function() {
   it('should remove the index', function() {
     return collection.destroyAll();
   });
-
 
 });
